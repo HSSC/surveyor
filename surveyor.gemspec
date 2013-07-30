@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency('uuidtools', '~> 2.1')
   s.add_dependency('mustache', '0.99.4')
   s.add_dependency('rabl', '~>0.6.13')
+  s.add_dependency('paperclip')
 
   s.add_development_dependency('yard')
   s.add_development_dependency('rake', '>= 0.9.2')

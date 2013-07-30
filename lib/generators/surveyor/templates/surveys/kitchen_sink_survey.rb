@@ -276,5 +276,9 @@ survey "Kitchen Sink survey", :default_mandatory => false do
       a "Age|years", :integer
     end
 
+    # File responses (uses paperclip), display_type must equal :file and answer must be :file
+    question "File Upload", :display_type => :file
+    answer :file
+
   end
 end

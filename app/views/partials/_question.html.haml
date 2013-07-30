@@ -6,7 +6,20 @@
   = f.inputs q_text(q, @render_context, I18n.locale), :id => rg ? "q_#{q.id}_#{rg}" : "q_#{q.id}", :class => "q_#{renderer} #{q.css_class(@response_set)}" do
     %span.help= q.help_text_for(@render_context, I18n.locale)
     - case renderer
-    - when  :image, :label, :default_label, :inline_label, :repeater_label
+    - when :file
+      - r = response_for(@response_set, q, nil, rg)
+      - i = response_idx
+      = f.semantic_fields_for i, r do |ff|
+        - a = q.answers.first
+        = ff.input :question_id, :as => :quiet
+        = ff.input :response_group, :as => :quiet, :value => rg if g && g.display_type == "repeater"
+        = ff.input :api_id, :as => :quiet
+        = ff.input :answer_id, :as => :quiet, :input_html => {:class => a.css_class, :value => a.id}
+        - if disabled
+          = link_to r.file.original_filename, r.file.url, :target => :blank
+        - else
+          = ff.input :file, :as => :file, :label => false, :input_html => { :disabled => disabled }
+    - when :image, :label, :default_label, :inline_label, :repeater_label
     - when :dropdown, :inline_dropdown, :default_dropdown, :slider, :repeater_dropdown
       - r = response_for(@response_set, q, nil, rg)
       - i = response_idx

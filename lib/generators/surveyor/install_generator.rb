@@ -40,6 +40,7 @@ module Surveyor
       api_ids_must_be_unique
       create_survey_translations
       add_input_mask_attributes_to_answer
+      add_attachment_to_response
     )
 
     def readme

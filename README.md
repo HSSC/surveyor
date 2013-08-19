@@ -1,3 +1,8 @@
+## What's different in this version
+
+* Ability to attach files
+* Fix to question/group numbering
+
 ## Why surveyor?
 
 Surveyor is a developer tool to deliver surveys in Rails applications.
